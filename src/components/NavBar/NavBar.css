@@ -1,0 +1,27 @@
+/* Estilos para el Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 1100;
+    background-color: #fff; /* Fondo blanco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.navbar-title {
+    font-weight: bold;
+}
+
+.navbar-button {
+    margin-left: 20px; /* Espacio entre los botones */
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .navbar-button {
+        margin-left: 10px;
+    }
+
+    .navbar-title {
+        font-size: 1.2rem; /* Ajuste de tamaño del texto en pantallas pequeñas */
+    }
+}

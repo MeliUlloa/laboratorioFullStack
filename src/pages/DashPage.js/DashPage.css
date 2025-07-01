@@ -1,0 +1,46 @@
+/* Contenedor general de la página */
+.dash-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden; /* Evitar desplazamiento horizontal no deseado */
+}
+
+/* Estilos para el contenedor del Carousel */
+.carousel-container {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 100px; /* Ajuste dinámico del margen superior para pantallas grandes */
+    padding: 0 20px;
+}
+
+/* Estilos para la lista de productos */
+.product-list-container {
+    width: 100%;
+    max-width: 1200px; /* Máximo ancho para la lista de productos */
+    margin-top: 80px; /* Espacio entre el Carousel y los productos */
+    padding: 0 20px;
+}
+
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 600px) {
+    .carousel-container {
+        margin-top: 80px; /* Menor espacio para pantallas pequeñas */
+    }
+
+    .product-list-container {
+        margin-top: 60px; /* Menor espacio para pantallas pequeñas */
+    }
+}
+
+/* Responsividad para pantallas medianas */
+@media (min-width: 600px) and (max-width: 1024px) {
+    .carousel-container {
+        margin-top: 100px; /* Espacio intermedio para pantallas medianas */
+    }
+
+    .product-list-container {
+        margin-top: 70px; /* Espacio intermedio para pantallas medianas */
+    }
+}

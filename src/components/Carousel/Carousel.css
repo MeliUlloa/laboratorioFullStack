@@ -1,0 +1,25 @@
+/* Estilos para el Carousel */
+.carousel-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 500px; /* Espacio para evitar superposición con el Navbar */
+}
+
+@media (max-width: 600px) {
+    .carousel-container {
+        padding-top: 60px; /* Menor espacio en pantallas pequeñas */
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .carousel-container {
+        padding-top: 80px; /* Espacio intermedio para pantallas medianas */
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-container {
+        padding-top: 120px; /* Más espacio en pantallas grandes */
+    }
+}

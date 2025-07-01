@@ -1,0 +1,115 @@
+/* Estilos básicos */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100vh;
+    margin: 0;
+    padding-top: 0px;
+} 
+
+/* Contenedor principal para la página de login */
+.login-page {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Título */
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+/* Estilo del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas de los campos */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Estilo de los campos de entrada */
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Estilo para los campos en foco */
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Estilo para el botón */
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambio de color del botón al pasar el mouse */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estado del botón deshabilitado */
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Mensaje de error */
+p {
+    color: #ff4d4d;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+    .login-page {
+        padding: 20px; /* Menos padding en dispositivos pequeños */
+        width: 100%; /* Asegura que se use todo el ancho disponible */
+        max-width: 90%; /* Limita el ancho máximo en pantallas pequeñas */
+    }
+
+    h2 {
+        font-size: 20px; /* Ajusta el tamaño de la fuente del título */
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px; /* Ajusta el tamaño de los inputs */
+    }
+
+    button {
+        font-size: 14px; /* Ajusta el tamaño del botón */
+    }
+}

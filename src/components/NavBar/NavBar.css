@@ -2,26 +2,77 @@
 .navbar {
     position: fixed;
     top: 0;
-    z-index: 1100;
-    background-color: #fff; /* Fondo blanco */
+    left: 0;
+    z-index: 1100; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
 .navbar-title {
     font-weight: bold;
+    color: var(--background);
+    align-items: center;
+}
+
+.navbar-title img {
+    height: 40px; /* Ajusta el tamaño del logo */
+    width: auto;
+}
+
+/* Buscador */
+/* .MuiTextField-root {
+    border-radius: 20px;
+} */
+
+/* Botones */
+.MuiButton-root {
+     font-weight: bold;
+    text-transform: none;
+    display: flex;
+    align-items: center;
+}
+
+
+/* Iconos */
+.MuiIconButton-root {
+    margin-left: 20px;
 }
 
 .navbar-button {
     margin-left: 20px; /* Espacio entre los botones */
+color: var(--text-color); /* Color del texto de los botones */
+    font-weight: bold;
+}
+
+
+/* Hover en los botones */
+.navbar-button:hover {
+    color: var(--secondary); /* Color en hover con color secundario */
 }
 
 /* Responsividad */
-@media (max-width: 600px) {
-    .navbar-button {
-        margin-left: 10px;
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+        display: flex;
+        flex-direction: column; /* Hace que el contenido se apile verticalmente */
+        align-items: center;
     }
 
-    .navbar-title {
-        font-size: 1.2rem; /* Ajuste de tamaño del texto en pantallas pequeñas */
+    .navbar-title img {
+        height: 20px;
+    }
+
+    
+
+    .MuiTextField-root {
+        max-width: 250px; /* Ajuste el tamaño del buscador */
+     margin-top: 10px; /* Agrega espacio en la parte superior del buscador */
+        margin-bottom: 10px; /* Agrega espacio en la parte inferior del buscador */
+    }
+
+    .MuiButton-root,
+    .MuiIconButton-root {
+        font-size: 12px;
     }
 }
+

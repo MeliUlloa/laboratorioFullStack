@@ -1,10 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
+import RegisterPage from '../pages/RegisterPage';
 import DashPage from '../pages/DashPage.js/DashPage';
 import ProductDetail from '../components/Products/ProductDetail';
 import Cart from '../components/Cart/Cart';
 import { CartProvider } from '../Context/CartContext';
+import ProductForm from '../components/ProductForm'
+
 
 function Routing() {
     return (
@@ -12,9 +15,11 @@ function Routing() {
             <Router>
                 <Routes>
                     <Route path="/" element={<LoginPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
                     <Route path="/dash" element={<DashPage />} />
                     <Route path="/product/:id" element={<ProductDetail />} />
                     <Route path="/cart" element={<Cart />} />
+                    <Route path="/crear" element={<ProductForm />} />
                 </Routes>
             </Router>
         </CartProvider>

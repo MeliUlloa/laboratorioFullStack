@@ -1,24 +1,46 @@
-// src/services/authService.js
 export const authService = {
-    login: (email, password) => {
-        return fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(users => {
-                // JSONPlaceholder no tiene contraseñas, así que simulamos una
-                const user = users.find(u => u.email === email);
-                const validPassword = "contrasena123";  // Contraseña simulada
+  login: async (username, password) => {
+    try {
+      const response = await fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
 
-                if (user && password === validPassword) {
-                    console.log('Login exitoso');
-                    return { success: true, email: user.email, name: user.name };
-                } else {
-                    console.log('Email o contraseña incorrectos');
-                    throw new Error('Email o contraseña incorrectos');
-                }
-            })
-            .catch(error => {
-                console.error('Error en la autenticación:', error.message);
-                return { success: false, message: error.message };
-            });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.msg || 'Error de autenticación');
+      }
+
+      // Guardamos token en localStorage
+      localStorage.setItem('token', data.token);
+
+      return { success: true, user: { username }, token: data.token };
+    } catch (error) {
+      console.error('Error en login:', error.message);
+      return { success: false, message: error.message };
     }
+  },
+
+  register: async (username, email, password, role) => {
+    try {
+      const response = await fetch('http://localhost:3001/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, email, password, rol: role }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.msg || 'Error en el registro');
+      }
+
+      return { success: true, message: 'Usuario creado' };
+    } catch (error) {
+      console.error('Error en registro:', error.message);
+      return { success: false, message: error.message };
+    }
+  },
 };

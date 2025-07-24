@@ -5,18 +5,21 @@ import '../assets/styles/styles.css';
 import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');  // Estado para la contraseña
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
+
     const navegate = useNavigate()
 
+    // Función que se ejecuta cuando el usuario envía el formulario
     const handleSubmit = (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setErrorMessage('');
+        e.preventDefault();  // Evita que el formulario recargue la página al enviar
+        setLoading(true);    // Pone el estado de loading en true para mostrar spinner o deshabilitar botón
+        setErrorMessage(''); // Limpia cualquier error anterior
 
-        authService.login(email, password)
+        // Llama al servicio authService.login con los datos ingresados
+        authService.login(username, password)
             .then(response => {
 
                 localStorage.setItem('user', JSON.stringify(response))
@@ -34,17 +37,17 @@ function LoginForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Email:</label>
+        <form className="form-login" onSubmit={handleSubmit}>
+            <div class="input-group">
+                <label> Username:</label>
                 <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     required
                 />
             </div>
-            <div>
+            <div className="input-group">
                 <label>Contraseña:</label>
                 <input
                     type="password"

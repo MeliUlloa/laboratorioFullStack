@@ -1,25 +1,43 @@
-/* Estilos para el Carousel */
-.carousel-container {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-top: 500px; /* Espacio para evitar superposición con el Navbar */
+
+/* Personalización de las flechas de navegación */
+.slick-prev, .slick-next {
+    z-index: 10;                /* Asegura que las flechas se superpongan a la imagen */
+    color: white;               /* Cambia el color de las flechas si lo deseas */
+    font-size: 30px;            /* Ajusta el tamaño de las flechas */
+}
+
+.slick-prev {
+    left: 10px;                 /* Coloca la flecha hacia la izquierda */
+}
+
+.slick-next {
+    right: 10px;                /* Coloca la flecha hacia la derecha */
+}
+
+/* Personalización de los puntos de paginación */
+.slick-dots {
+    position: absolute;
+    bottom: 10px;               /* Coloca los puntos al fondo */
+    left: 50%;
+    transform: translateX(-50%); /* Centra los puntos horizontalmente */
+    display: flex;               /* Alinea los puntos */
+    gap: 10px;                   /* Espaciado entre los puntos */
+}
+
+.slick-dots li button {
+    background-color: rgba(255, 255, 255, 0.7); /* Color de los puntos */
+    border-radius: 50%;            /* Hace que los puntos sean circulares */
+    width: 12px;
+    height: 12px;
+}
+
+.slick-dots li.slick-active button {
+    background-color: white;     /* Cambia el color del punto activo */
 }
 
 @media (max-width: 600px) {
     .carousel-container {
-        padding-top: 60px; /* Menor espacio en pantallas pequeñas */
+        padding-top: 40px;
     }
 }
 
-@media (min-width: 600px) and (max-width: 1024px) {
-    .carousel-container {
-        padding-top: 80px; /* Espacio intermedio para pantallas medianas */
-    }
-}
-
-@media (min-width: 1024px) {
-    .carousel-container {
-        padding-top: 120px; /* Más espacio en pantallas grandes */
-    }
-}

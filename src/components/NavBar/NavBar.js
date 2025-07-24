@@ -8,8 +8,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import '../../assets/styles/styles.css'; // Tu archivo de estilos
 import '../NavBar/NavBar.css'
 import PersonIcon from '@mui/icons-material/Person';  // Ícono de Persona
+import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../Context/CartContext';
+
 
 function Navbar() {
+
+    const navigate = useNavigate();
+
     return (
         <AppBar
             position="fixed"
@@ -21,12 +27,15 @@ function Navbar() {
         >
             <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 {/* Logo */}
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography variant="h6" component="div" className="navbar-title" sx={{ color: 'var(--background)' }}>
+                <Box
+                    sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', mr: { xs: 1, sm: 2, md: 3, lg: 5 } }}
+                    onClick={() => navigate('/')}
+                >
+                    <Typography variant="h6" component="div" className="navbar-title" sx={{ color: 'var(--background)', display: 'flex', alignItems: 'center' }}>
                         <img src={require('../../assets/styles/images/descarga.png')} alt="Logo" style={{
                             height: '75px', // Tamaño predeterminado
                             width: 'auto',
-                            transition: 'height 0.3s ease', // Animación para que el logo cambie suavemente
+                            objectFit: 'contain', // Animación para que el logo cambie suavemente
                         }}
                             sx={{
                                 height: { xs: '50px', sm: '60px', md: '75px' },  // Ajuste de tamaño responsivo
@@ -66,10 +75,10 @@ function Navbar() {
 
                 {/* Iconos de sesión y carrito */}
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Button color="inherit" sx={{ marginLeft: 2 }}>
+                    <Button color="inherit" sx={{ marginLeft: 2 }} onClick={() => navigate('/login')}>
                         <PersonIcon sx={{ marginRight: 1 }} />
                         Iniciar sesión</Button>
-                    <IconButton color="inherit" sx={{ marginLeft: 2 }}>
+                    <IconButton color="inherit" sx={{ marginLeft: 2 }} onClick={() => navigate('/cart')}>
                         <ShoppingCartIcon />
                     </IconButton>
                 </Box>

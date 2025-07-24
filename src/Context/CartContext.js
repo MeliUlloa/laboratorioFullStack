@@ -16,17 +16,40 @@ export const CartProvider = ({ children }) => {
     }, [])
 
     // Función para agregar productos al carrito
-    const addToCart = (product) => {
+     const addToCart = (product) => {
         setCart((prevCart) => {
-            const updatedCart = [...prevCart, product];
-            // Guardar el carrito actualizado en localStorage
+            const existingItem = prevCart.find((item) => item.id === product.id);
+            let updatedCart;
+
+            if (existingItem) {
+                updatedCart = prevCart.map((item) =>
+                    item.id === product.id
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                );
+            } else {
+                updatedCart = [...prevCart, { ...product, quantity: 1 }];
+            }
+
             localStorage.setItem('cart', JSON.stringify(updatedCart));
             return updatedCart;
         });
     };
 
+    // eliminar iteam por id
+     const removeItem = (id) => {
+        const updatedCart = cart.filter((item) => item.id !== id);
+        setCart(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    };
+    // vaciar carrito
+    const clearCart = () => {
+        setCart([]);
+        localStorage.removeItem('cart');
+    };
+    //obtener total productos
     return (
-        <CartContext.Provider value={{ cart, addToCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeItem, clearCart }}>
             {children}
         </CartContext.Provider>
     );

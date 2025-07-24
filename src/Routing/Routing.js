@@ -14,9 +14,9 @@ function Routing() {
         <CartProvider>
             <Router>
                 <Routes>
-                    <Route path="/" element={<LoginPage />} />
+                    <Route path="/" element={<DashPage />} />
                     <Route path="/register" element={<RegisterPage />} />
-                    <Route path="/dash" element={<DashPage />} />
+                    <Route path="/login" element={<LoginPage />} />
                     <Route path="/product/:id" element={<ProductDetail />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/crear" element={<ProductForm />} />

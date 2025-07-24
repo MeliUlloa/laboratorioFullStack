@@ -25,7 +25,7 @@ function LoginForm() {
                 localStorage.setItem('user', JSON.stringify(response))
                 setLoading(false);
                 if (response.success) {
-                    navegate('/dash');
+                    navegate('/');
                 } else {
                     setErrorMessage(response.message);
                 }

@@ -1,0 +1,30 @@
+/* Estilo para la lista de productos */
+.product-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+  .product-list-container {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .MuiCard-root {
+    max-width: 100% !important;
+  }
+}
+
+/* Responsividad para pantallas medianas */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .product-list-container {
+    justify-content: center;
+  }
+
+  .MuiCard-root {
+    max-width: 100%;
+  }
+}

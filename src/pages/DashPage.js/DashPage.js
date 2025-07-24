@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import Carousel from '../../components/Carousel/Carousel';
-import ProductList from '../../components/Products/ProductList';
+import ProductList from '../../components/Products/ProductList/ProductList';
 import { productService } from '../../services/productService'; // servicio para traer datos reales
 import '../DashPage.js/DashPage.css';
 import '../../assets/styles/styles.css';
@@ -31,7 +31,7 @@ function DashPage() {
     name: 'Pan Casero',
     price: 150,
     image: 'https://scontent.fnqn11-2.fna.fbcdn.net/v/t39.30808-6/470190020_928176326045923_9032983999149828781_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEV3xmdoHKyaFjs4m4aR8d34dcNZ6RxNG_h1w1npHE0b1TqNwVmSg3zroqM-3a8RfTAgEZEWBBdVdokFmLctbu4&_nc_ohc=1SXA3RNF4YIQ7kNvwHGYkWu&_nc_oc=Admfwlit2ZwNILUrTVkyFULuebH2IZNKg70ulbhNTB9ozJIotA9BiwHodWuRMMvDKdI&_nc_zt=23&_nc_ht=scontent.fnqn11-2.fna&_nc_gid=uxfoSok9uILZeAyCd1hwxg&oh=00_AfQuZLde82dwVHPSLxj9fTTkYfGsxEGuhjexyAWqzt65RA&oe=68857962',
-    description: 'Pan artesanal hecho con masa madre y horneado tradicional.'
+    description: 'Pan artesanal hecho con masa madre.'
   },
   {
     id: 2,

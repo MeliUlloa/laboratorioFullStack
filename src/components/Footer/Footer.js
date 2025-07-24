@@ -22,9 +22,7 @@ const Footer = () => {
           <Link href="https://www.instagram.com" target="_blank" display="flex" alignItems="center" sx={{ marginBottom: 1 }}>
             <InstagramIcon sx={{ marginRight: 1 }} /> Instagram
           </Link>
-          <Link href="https://plus.google.com" target="_blank" display="flex" alignItems="center">
-            <LocationOnIcon sx={{ marginRight: 1 }} /> Google Plus
-          </Link>
+          
         </Box>
 
         <Box className="footerColumn">
@@ -55,7 +53,6 @@ const Footer = () => {
             loading="lazy"
           ></iframe>
         </Box>
-        {/* Puede incluir más contenido si deseas */}
       </Box>
 
       <Box className="footerBottom">

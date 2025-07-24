@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import DashPage from '../pages/DashPage.js/DashPage';
-import ProductDetail from '../components/Products/ProductDetail';
+import ProductDetail from '../components/Products/ProductDetail/ProductDetail';
 import Cart from '../components/Cart/Cart';
 import { CartProvider } from '../Context/CartContext';
 import ProductForm from '../components/ProductForm'

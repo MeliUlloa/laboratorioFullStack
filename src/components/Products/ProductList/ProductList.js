@@ -2,12 +2,11 @@ import React from 'react';
 import {
   Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, Avatar, IconButton, Typography, Grid
 } from '@mui/material';
-import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useNavigate } from 'react-router-dom';
+import '../ProductList/ProductList.css'
 
 function ProductList({ products }) {
   const [expanded, setExpanded] = React.useState(false);
@@ -21,22 +20,22 @@ function ProductList({ products }) {
     <Grid container spacing={3} justifyContent="center">
       {products.map((product) => (
         <Grid item xs={12} sm={6} md={4} key={product.id}>
-          <Card sx={{ maxWidth: 345 }} onClick={() => handleProductClick(product.id)}>
+          <Card sx={{ maxWidth: 345, boxShadow: 3, borderRadius: 2 }} onClick={() => handleProductClick(product.id)}>
             <CardHeader
-              avatar={<Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" />}
               action={
                 <IconButton aria-label="settings">
-                  <MoreVertIcon />
+                  <ExpandMoreIcon />
                 </IconButton>
               }
               title={product.name}
-              subheader={`Price: $${product.price}`}
+              subheader={`$${product.price}`}
             />
             <CardMedia
               component="img"
-              height="194"
+          
               image={product.image}
               alt={product.name}
+              sx={{ objectFit: 'cover', height: 200, }}
             />
             <CardContent>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -50,20 +49,11 @@ function ProductList({ products }) {
               <IconButton aria-label="add to cart">
                 <AddShoppingCartIcon />
               </IconButton>
-              <IconButton aria-label="expand details">
-                <ExpandMoreIcon />
-              </IconButton>
             </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <CardContent>
-                <Typography>Additional details of {product.name}...</Typography>
-              </CardContent>
-            </Collapse>
           </Card>
         </Grid>
       ))}
     </Grid>
   );
 }
-
 export default ProductList;
